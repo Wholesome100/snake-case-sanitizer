@@ -24,6 +24,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to access %q: %v", *path, err)
 	} else {
-		mapper.ProcessPath(info)
+		mapper.ProcessPath(*path, info)
 	}
 }
