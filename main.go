@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/Wholesome100/snake-case-sanitizer/mapper"
 )
 
 // Flag definitions for the CLI tool
@@ -22,14 +24,7 @@ func main() {
 	info, err := os.Stat(*path)
 	if err != nil {
 		log.Fatalf("Failed to access %q: %v", *path, err)
-	}
-
-	if info.IsDir() {
-		fmt.Printf("Converting directory: %s\n", *path)
-		// TODO: Recursively comb through a directory, renaming it and all files/folders within
 	} else {
-		fmt.Printf("Converting file: %s\n", *path)
-		// TODO: Convert the single filename to snake_case
+		mapper.ProcessPath(info)
 	}
-
 }
