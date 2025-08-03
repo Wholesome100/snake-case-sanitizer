@@ -8,7 +8,7 @@ import (
 )
 
 // Flag definitions for the CLI tool
-var path *string = flag.String("path", "", "absolute or relative file/directory path to convert")
+var path *string = flag.String("path", "", "Absolute or relative file/directory path to convert.")
 
 // Entry point for the program
 func main() {
