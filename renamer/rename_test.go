@@ -5,8 +5,8 @@ import (
 )
 
 func TestReplaceWhitespace(t *testing.T) {
-	name := "My Epic File"
-	want := "my_epic_file"
+	name := "My Epic File.txt"
+	want := "my_epic_file.txt"
 
 	msg := ConvertName(name)
 
@@ -16,8 +16,8 @@ func TestReplaceWhitespace(t *testing.T) {
 }
 
 func TestReplaceHyphen(t *testing.T) {
-	name := "Cool-Name"
-	want := "cool_name"
+	name := "Cool-Name.md"
+	want := "cool_name.md"
 
 	msg := ConvertName(name)
 
@@ -27,8 +27,8 @@ func TestReplaceHyphen(t *testing.T) {
 }
 
 func TestReplaceUnderscore(t *testing.T) {
-	name := "Already_snake_case"
-	want := "already_snake_case"
+	name := "Already_snake_case.py"
+	want := "already_snake_case.py"
 
 	msg := ConvertName(name)
 
@@ -38,8 +38,8 @@ func TestReplaceUnderscore(t *testing.T) {
 }
 
 func TestReplaceMixedSeparators(t *testing.T) {
-	name := " spaced.out,name "
-	want := "spaced_out_name"
+	name := " spaced.out,name .go"
+	want := "spaced_out_name.go"
 
 	msg := ConvertName(name)
 
@@ -49,8 +49,8 @@ func TestReplaceMixedSeparators(t *testing.T) {
 }
 
 func TestReplaceTabsAndNewlines(t *testing.T) {
-	name := "Tabs\tand\nNewlines"
-	want := "tabs_and_newlines"
+	name := "Tabs\tand\nNewlines.jpeg"
+	want := "tabs_and_newlines.jpeg"
 
 	msg := ConvertName(name)
 
