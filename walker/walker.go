@@ -13,7 +13,13 @@ import (
 func ProcessPath(path string, info os.FileInfo) {
 	// Logic to handle the case of a single file passed in
 	if !info.IsDir() {
-		newName := renamer.ConvertName((filepath.Base(path)))
+		oldName := filepath.Base(path)
+		newName := renamer.ConvertName(oldName)
+		if oldName == newName {
+			fmt.Printf("Skipped (already snake_case): %s\n", oldName)
+			return
+		}
+
 		newPath := filepath.Join(filepath.Dir(path), newName)
 		err := os.Rename(path, newPath)
 		if err != nil {
