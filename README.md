@@ -11,10 +11,11 @@ Make sure Go is installed on your computer, then, simply execute the command:
 `go install github.com/Wholesome100/snake-case-sanitizer@latest`
 
 ## Usage
-The utility can be invoked like so:
+The utility can be invoked from the command line like so:
 `snake-case-sanitizer -path <FILENAME>`
 
 The -path flag specifies the path of the file or directory you want to convert.
+
 ⚠️ **NOTE**: Be careful when passing in directory names. This utility will comb through ALL files and subdirectories, converting them to snake_case.
 
 ### License
