@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Wholesome100/snake-case-sanitizer/mapper"
+	"github.com/Wholesome100/snake-case-sanitizer/walker"
 )
 
 // Flag definitions for the CLI tool
@@ -24,6 +24,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to access %q: %v", *path, err)
 	} else {
-		mapper.ProcessPath(*path, info)
+		walker.ProcessPath(*path, info)
 	}
 }

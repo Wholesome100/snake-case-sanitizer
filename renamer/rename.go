@@ -9,6 +9,7 @@ Converting other cases like PascalCase or camelCase to snake_case may be added i
 package renamer
 
 import (
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -18,7 +19,10 @@ var separators = regexp.MustCompile(`[ \-_.,\t\n]+`)
 
 // Logic for renaming individual entity names
 func ConvertName(fname string) string {
-	words := separators.Split(fname, -1)
+	ext := filepath.Ext(fname)
+	name := strings.TrimSuffix(fname, ext)
+
+	words := separators.Split(name, -1)
 
 	// Loop through our split words, ignoring empty strings, and appending valid ones after lowercasing them
 	var cleaned []string
@@ -28,5 +32,5 @@ func ConvertName(fname string) string {
 		}
 	}
 
-	return strings.Join(cleaned, "_")
+	return strings.Join(cleaned, "_") + ext
 }
