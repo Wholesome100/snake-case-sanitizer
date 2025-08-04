@@ -21,6 +21,12 @@ func ProcessPath(path string, info os.FileInfo) {
 		}
 
 		newPath := filepath.Join(filepath.Dir(path), newName)
+
+		// Check for collisions and skip if our new filename already exists
+		if _, err := os.Stat(newPath); err == nil {
+			fmt.Printf("⚠️  Skipped (collision): %s -> %s already exists\n", path, newPath)
+		}
+
 		err := os.Rename(path, newPath)
 		if err != nil {
 			log.Fatalf("Failed to rename file %q: %v", path, err)
@@ -50,6 +56,13 @@ func ProcessPath(path string, info os.FileInfo) {
 			continue
 		}
 		newPath := filepath.Join(filepath.Dir(oldPath), newBase)
+
+		// Check for collisions and skip if our new filename already exists
+		if _, err := os.Stat(newPath); err == nil {
+			fmt.Printf("⚠️  Skipped (collision): %s -> %s | %s already exists\n", base, newBase, newPath)
+			continue
+		}
+
 		err := os.Rename(oldPath, newPath)
 		if err != nil {
 			log.Printf("Failed to rename %q -> %q: %v", oldPath, newPath, err)
