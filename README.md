@@ -19,4 +19,4 @@ The `-path` flag specifies the path of the file or directory you want to convert
 ⚠️ **NOTE**: Be careful when passing in directory names; the utility will comb through ALL files and subdirectories, converting them to `snake_case`.
 
 ### License
-All Rights Reserved.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
